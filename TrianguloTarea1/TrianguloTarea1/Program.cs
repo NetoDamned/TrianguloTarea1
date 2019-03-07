@@ -6,8 +6,30 @@ using System.Threading.Tasks;
 
 namespace TrianguloTarea1
 {
-    class Program
-    {
+    class Program {
+
+        static double potencia(double lA, double lB, double ang)
+        {
+            double v1, v2;
+
+            v1 = Math.Pow(lA, 2);
+            v2 = Math.Pow(lB, 2);
+
+
+            double radianes, coseno, resultado;
+
+            radianes = (Math.PI / 180) * ang;
+            coseno = Math.Cos(radianes);
+            Console.WriteLine(v1);
+            Console.WriteLine(v2);
+            Console.WriteLine(coseno);
+
+            resultado = Math.Sqrt(v1 + v2 - 2 * lA * lB * coseno);
+
+            return resultado;
+        }
+        
+    
         static void Main(string[] args)
         {
 
@@ -23,17 +45,11 @@ namespace TrianguloTarea1
             Console.WriteLine("Ingresa el ángulo que dibujan ambos lados");
             linea = Console.ReadLine();
             angulo = double.Parse(linea);
-
-            valor1 = Math.Pow(ladoA, 2);
-            valor2 = Math.Pow(ladoB, 2);
-
-            radianes = (Math.PI / 180) * angulo;
-            coseno = Math.Cos(radianes);
-
-            resultado = valor1 + valor2 - 2 * ladoA * ladoB * coseno;
+                                 
+            resultado = potencia(ladoA, ladoB, angulo);
 
             Console.WriteLine("El tercer lado de tu triángulo mide: ");
-            Console.WriteLine(Math.Sqrt(resultado));
+            Console.WriteLine(resultado);
             Console.ReadKey();
                        
 
